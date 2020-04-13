@@ -17,7 +17,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
+@Entity
+@Table(name="diagnostico")
 public class Diagnostico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
