@@ -17,10 +17,13 @@ public class SecretariaServiceImpl implements SecretariaService {
 	private SecretariaRepository repository;
 
 	@Override
-	public Secretaria crear(Integer idSecretaria, Secretaria secretaria) {
-		secretaria.setId(idSecretaria);
+	public Secretaria crear(Secretaria secretaria) {
 		secretaria.setFecha(new Date());
 		return secretaria;
+	}
+	@Override
+	public List<Secretaria> getByName(String nombre) {
+		return repository.findByName(nombre);
 	}
 
 	@Override

@@ -1,12 +1,17 @@
 package com.generationc20.EasyDoctor.model;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -32,6 +37,14 @@ public class Consultorio {
 	private transient String claveAcceso;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fecha;
+	
+	@OneToMany(targetEntity = ConsultorioSecretaria.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+	@JoinColumn(name = "idConsultorio",referencedColumnName = "id")
+	private List<ConsultorioSecretaria> consSecretaria;
+	
+	@OneToMany(targetEntity = ConsultorioDoctor.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+	@JoinColumn(name = "idConsultrio",referencedColumnName = "id")
+	private List<ConsultorioDoctor> consDoctor;
 	
 	public Consultorio() {}
 	

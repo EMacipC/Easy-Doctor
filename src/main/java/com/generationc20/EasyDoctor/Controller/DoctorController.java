@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.generationc20.EasyDoctor.Service.ConsultorioDoctroService;
+import com.generationc20.EasyDoctor.Service.ConsultorioService;
 import com.generationc20.EasyDoctor.Service.DoctorService;
+import com.generationc20.EasyDoctor.model.Consultorio;
+import com.generationc20.EasyDoctor.model.ConsultorioDoctor;
 import com.generationc20.EasyDoctor.model.Doctor;
 
 
@@ -24,12 +28,33 @@ import com.generationc20.EasyDoctor.model.Doctor;
 public class DoctorController {
 	@Autowired
 	private DoctorService service;
+	@Autowired
+	private ConsultorioService conService;
+	@Autowired
+	private ConsultorioDoctroService cDService;
 	
 	
 	@PostMapping
 	public ResponseEntity<Doctor> crear(@RequestBody Doctor doctor){
 		return new ResponseEntity<>(service.crear(doctor),HttpStatus.CREATED);
 	}
+	@PostMapping("/crearCons/{idCreador}")
+	public ResponseEntity<Consultorio> crearCons(@PathVariable("idCreador")Integer idCreador,@RequestBody Consultorio cons){
+		Consultorio consu=new Consultorio();
+		consu=conService.crear(idCreador, cons);
+		Integer idConsultorio=consu.getId();
+		cDService.crearDS(idConsultorio, idCreador);
+		return new ResponseEntity<>(consu,HttpStatus.CREATED);
+	}
+	@PostMapping("/inscribri")
+	public ResponseEntity<ConsultorioDoctor> inscribir(@RequestBody ConsultorioDoctor consDoctor){
+		return new ResponseEntity<>(cDService.crear(consDoctor),HttpStatus.CREATED);
+	}
+	@GetMapping("/CD")
+	public ResponseEntity<List<ConsultorioDoctor>> getAllCD(){
+		return new ResponseEntity<>(cDService.getAll(),HttpStatus.OK);
+	}
+	
 	@GetMapping
 	public ResponseEntity<List<Doctor>>getAll(){
 		return  new ResponseEntity<>(service.getAll(),HttpStatus.OK);

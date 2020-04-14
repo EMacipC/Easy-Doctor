@@ -49,6 +49,10 @@ public class Doctor {
 	@JoinColumn(name="idDoctor",referencedColumnName = "id")
 	private List<Cita> cita;
 	
+	@OneToMany(targetEntity = ConsultorioDoctor.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+	@JoinColumn(name = "idDoctor",referencedColumnName = "id")
+	private List<ConsultorioDoctor> consDoctor;
+	
 	
 	public Integer getId() {
 		return Id;
@@ -155,6 +159,22 @@ public class Doctor {
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
+	}
+
+	public List<Cita> getCita() {
+		return cita;
+	}
+
+	public void setCita(List<Cita> cita) {
+		this.cita = cita;
+	}
+
+	public List<ConsultorioDoctor> getConsDoctor() {
+		return consDoctor;
+	}
+
+	public void setConsDoctor(List<ConsultorioDoctor> consDoctor) {
+		this.consDoctor = consDoctor;
 	}
 	
 }
