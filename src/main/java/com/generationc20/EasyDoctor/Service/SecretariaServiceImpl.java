@@ -10,6 +10,7 @@ import com.generationc20.EasyDoctor.model.Doctor;
 import com.generationc20.EasyDoctor.model.Secretaria;
 import com.generationc20.EasyDoctor.Respository.SecretariaRepository;
 
+@Service
 public class SecretariaServiceImpl implements SecretariaService {
 	
 	@Autowired
