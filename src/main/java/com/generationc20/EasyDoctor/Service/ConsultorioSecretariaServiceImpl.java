@@ -4,10 +4,12 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.generationc20.EasyDoctor.Respository.ConsultorioSecretariaRepository;
 import com.generationc20.EasyDoctor.model.ConsultorioSecretaria;
 
+@Service
 public class ConsultorioSecretariaServiceImpl  implements ConsultorioSecretariaService{
 	
 	@Autowired
