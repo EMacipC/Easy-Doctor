@@ -43,7 +43,7 @@ public class Doctor {
 	@Column(length=100,unique = true)
 	private String usuario;
 	@Column(length=100)
-	private String contraseña;
+	private transient String contraseña;
 	
 	@OneToMany(targetEntity = Cita.class, cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
 	@JoinColumn(name="idDoctor",referencedColumnName = "id")

@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.generationc20.EasyDoctor.model.Doctor;
+
+import at.favre.lib.crypto.bcrypt.BCrypt;
+
 import com.generationc20.EasyDoctor.Respository.DoctorRepository;
 @Service
 public class DoctorServiceImpl implements DoctorService{
@@ -17,6 +20,9 @@ public class DoctorServiceImpl implements DoctorService{
 
 	@Override
 	public Doctor crear(Doctor doctor) {
+		String password= doctor.getContraseña();
+		String hashPass= BCrypt.withDefaults().hashToString(12, password.toCharArray());
+		doctor.setContraseña(hashPass);
 		doctor.setFecha(new Date());
 		return repository.save(doctor);
 	}

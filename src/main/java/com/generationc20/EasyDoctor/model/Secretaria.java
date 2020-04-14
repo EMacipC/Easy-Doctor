@@ -42,7 +42,7 @@ public class Secretaria {
 	@Column(length=100)
 	private String usuario;
 	@Column(length=100)
-	private String contraseña;
+	private transient String contraseña;
 	
 	@OneToMany(targetEntity = ConsultorioSecretaria.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
 	@JoinColumn(name = "idSecretaria",referencedColumnName = "id")

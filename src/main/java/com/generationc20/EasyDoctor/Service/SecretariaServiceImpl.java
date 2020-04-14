@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 
 import com.generationc20.EasyDoctor.model.Doctor;
 import com.generationc20.EasyDoctor.model.Secretaria;
+
+import at.favre.lib.crypto.bcrypt.BCrypt;
+
 import com.generationc20.EasyDoctor.Respository.SecretariaRepository;
 
 @Service
@@ -18,6 +21,9 @@ public class SecretariaServiceImpl implements SecretariaService {
 
 	@Override
 	public Secretaria crear(Secretaria secretaria) {
+		String password= secretaria.getContraseña();
+		String hashPass= BCrypt.withDefaults().hashToString(12, password.toCharArray());
+		secretaria.setContraseña(hashPass);
 		secretaria.setFecha(new Date());
 		return secretaria;
 	}
