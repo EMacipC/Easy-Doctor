@@ -23,7 +23,7 @@ public class Diagnostico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="DIAGNOSTICO_ID")
-	private Integer Id;
+	private Integer id;
 	
 	@Column(length = 255)
 	private String specificaciones;
@@ -32,11 +32,11 @@ public class Diagnostico {
 	private Date fecha;
 
 	public Integer getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Integer id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getSpecificaciones() {
