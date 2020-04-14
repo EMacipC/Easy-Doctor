@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,21 +23,25 @@ import javax.persistence.TemporalType;
 public class Diagnostico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="DIAGNOSTICO_ID")
-	private Integer Id;
+//	@Column(name="DIAGNOSTICO_ID")
+	private Integer id;
 	
 	@Column(length = 255)
 	private String specificaciones;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fecha;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="idDiagnostico",referencedColumnName = "id")
+	private Tratamiento tratamiento;
 
 	public Integer getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Integer id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getSpecificaciones() {
@@ -53,6 +58,15 @@ public class Diagnostico {
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
+	}
+
+	public Tratamiento getTratamiento() {
+		return tratamiento;
+	}
+
+	public void setTratamiento(Tratamiento tratamiento) {
+		this.tratamiento = tratamiento;
 	} 
 
+	
 }

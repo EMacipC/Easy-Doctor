@@ -24,15 +24,16 @@ import javax.persistence.TemporalType;
 public class Tratamiento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="TRATAMIENTO_ID")
+//	@Column(name="TRATAMIENTO_ID")
 	private Integer id;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fecha;
 	
-	@OneToOne
-	@JoinColumn(name = "DIAGNOSTICO_ID", table = "DIAGNOSTICO")
 	private Integer idDiagnostico;
+	
+	@OneToOne(mappedBy = "tratamiento")
+	private Diagnostico diagnostico;
 
 	public Integer getId() {
 		return id;
@@ -57,5 +58,15 @@ public class Tratamiento {
 	public void setIdDiagnostico(Integer idDiagnostico) {
 		this.idDiagnostico = idDiagnostico;
 	}
+
+	public Diagnostico getDiagnostico() {
+		return diagnostico;
+	}
+
+	public void setDiagnostico(Diagnostico diagnostico) {
+		this.diagnostico = diagnostico;
+	}
+	
+	
 
 }
