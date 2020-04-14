@@ -23,7 +23,8 @@ import javax.persistence.TemporalType;
 public class Diagnostico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Column(name="DIAGNOSTICO_ID")
+
+	@Column(name="DIAGNOSTICO_ID")
 	private Integer id;
 	
 	@Column(length = 255)
