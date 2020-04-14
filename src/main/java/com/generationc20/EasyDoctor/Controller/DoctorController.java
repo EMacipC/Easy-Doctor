@@ -25,6 +25,11 @@ public class DoctorController {
 	@Autowired
 	private DoctorService service;
 	
+	
+	@PostMapping
+	public ResponseEntity<Doctor> crear(@RequestBody Doctor doctor){
+		return new ResponseEntity<>(service.crear(doctor),HttpStatus.CREATED);
+	}
 	@GetMapping
 	public ResponseEntity<List<Doctor>>getAll(){
 		return  new ResponseEntity<>(service.getAll(),HttpStatus.OK);
@@ -36,6 +41,10 @@ public class DoctorController {
 	@PutMapping("/{id}")
 	public ResponseEntity<Doctor> updata(@PathVariable("id") Integer id,@RequestBody Doctor d){
 		return new ResponseEntity<>(service.update(id, d),HttpStatus.OK);
+	}
+	@GetMapping("/nombre/{nombre}")
+	public ResponseEntity<List<Doctor>> getByName (@PathVariable("nombre")String nombre){
+		return new ResponseEntity<>(service.getByName(nombre),HttpStatus.OK);
 	}
 	@DeleteMapping
 	public ResponseEntity<Void> delete(@PathVariable("id")Integer id){

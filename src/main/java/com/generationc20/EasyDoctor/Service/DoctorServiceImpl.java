@@ -16,15 +16,17 @@ public class DoctorServiceImpl implements DoctorService{
 	private DoctorRepository repository;
 
 	@Override
-	public Doctor crear(Integer idDoctor, Doctor doctor) {
-		doctor.setId(idDoctor);
+	public Doctor crear(Doctor doctor) {
 		doctor.setFecha(new Date());
-		return doctor;
+		return repository.save(doctor);
+	}
+	@Override
+	public List<Doctor> getByName(String nombre) {
+		return repository.findByName(nombre);
 	}
 
 	@Override
 	public List<Doctor> getAll() {
-		// TODO Auto-generated method stub
 		return repository.findAll();
 	}
 

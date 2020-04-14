@@ -38,12 +38,16 @@ public class Doctor {
 	private String movil;
 	@Column(length=100)
 	private String direccion;
-	@Column(length=100)
+	@Column(length=100,unique = true)
 	private String email;
-	@Column(length=100)
+	@Column(length=100,unique = true)
 	private String usuario;
 	@Column(length=100)
 	private String contraseña;
+	
+	@OneToMany(targetEntity = Cita.class, cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+	@JoinColumn(name="idDoctor",referencedColumnName = "id")
+	private List<Cita> cita;
 	
 	
 	public Integer getId() {
