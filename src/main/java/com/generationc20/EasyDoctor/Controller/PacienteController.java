@@ -55,9 +55,9 @@ public class PacienteController {
 		return new ResponseEntity<>(service.getAll(),HttpStatus.OK);
 	}
 	@CrossOrigin
-	@PostMapping 
-	public ResponseEntity<Paciente> crear(@RequestBody Paciente paciente){
-		return new ResponseEntity<>(service.crearPaciente(paciente),HttpStatus.CREATED);
+	@PostMapping ("/{idCons}")
+	public ResponseEntity<Paciente> crear(@PathVariable("idCons")Integer idCons,@RequestBody Paciente paciente){
+		return new ResponseEntity<>(service.crearPaciente(idCons,paciente),HttpStatus.CREATED);
 	}
 	@GetMapping("/{id}")
 	public ResponseEntity<Paciente> getById(@PathVariable("id") Integer id){

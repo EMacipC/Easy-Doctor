@@ -22,6 +22,7 @@ public class Paciente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	private Integer idConsultorio;
 	
 	@Column(length=30)
 	private String nombre;
@@ -124,6 +125,15 @@ public class Paciente {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	
+	public Integer getIdConsultorio() {
+		return idConsultorio;
+	}
+
+	public void setIdConsultorio(Integer idConsultorio) {
+		this.idConsultorio = idConsultorio;
 	}
 
 	public String getNombre() {

@@ -41,7 +41,8 @@ public class PacienteServiceImpl implements PacienteService{
 	private AlergiaRepository aRepository;
 	
 	@Override
-	public Paciente crearPaciente(Paciente paciente) {
+	public Paciente crearPaciente(Integer idCons,Paciente paciente) {
+		paciente.setIdConsultorio(idCons);
 		paciente.setFecha(new Date());
 		return repository.save(paciente);
 	}

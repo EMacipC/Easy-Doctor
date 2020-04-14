@@ -14,7 +14,7 @@ import com.generationc20.EasyDoctor.model.Paciente;
 
 public interface PacienteService {
 	
-	Paciente crearPaciente(Paciente paciente);
+	Paciente crearPaciente(Integer idCons,Paciente paciente);
 	List<Paciente> getAll();
 	HistorialClinico crearhC(Integer idPaciente,HistorialClinico hC);
 	HistorialFamiliar crearhF(Integer idPaciente,HistorialFamiliar hF);

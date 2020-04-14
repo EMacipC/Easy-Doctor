@@ -46,6 +46,10 @@ public class Consultorio {
 	@JoinColumn(name = "idConsultrio",referencedColumnName = "id")
 	private List<ConsultorioDoctor> consDoctor;
 	
+	@OneToMany(targetEntity = Paciente.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+	@JoinColumn(name = "idConsultrio",referencedColumnName = "id")
+	private List<Paciente> paciente;
+	
 	public Consultorio() {}
 	
 	
