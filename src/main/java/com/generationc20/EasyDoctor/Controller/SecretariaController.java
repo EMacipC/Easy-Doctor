@@ -37,7 +37,7 @@ public class SecretariaController {
 	public ResponseEntity<Secretaria> updata(@PathVariable("id") Integer id,@RequestBody Secretaria s){
 		return new ResponseEntity<>(service.update(id, s),HttpStatus.OK);
 	}
-	@DeleteMapping
+	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> delete(@PathVariable("id")Integer id){
 		service.delete(id);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
