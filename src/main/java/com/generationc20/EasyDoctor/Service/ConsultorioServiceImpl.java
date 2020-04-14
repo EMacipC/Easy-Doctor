@@ -20,9 +20,9 @@ public class ConsultorioServiceImpl implements ConsultorioService {
 	
 	@Override
 	public Consultorio crear(Integer idCreador, Consultorio consultorio) {
-		String password= consultorio.getClaveAcceso();
-		String hashPass= BCrypt.withDefaults().hashToString(12, password.toCharArray());
-		consultorio.setClaveAcceso(hashPass);
+//		String password= consultorio.getClaveAcceso();
+//		String hashPass= BCrypt.withDefaults().hashToString(12, password.toCharArray());
+//		consultorio.setClaveAcceso(hashPass);
 		consultorio.setFecha(new Date());
 		return repository.save(consultorio);
 	}

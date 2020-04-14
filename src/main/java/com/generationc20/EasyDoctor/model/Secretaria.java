@@ -20,9 +20,10 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name="secretaria")
 public class Secretaria {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) 	
-	private Integer Id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 		
+	private Integer id;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fecha;
@@ -48,11 +49,18 @@ public class Secretaria {
 	@JoinColumn(name = "idSecretaria",referencedColumnName = "id")
 	private List<ConsultorioSecretaria> consSecretaria;
 	
+
 	public Integer getId() {
-		return Id;
+		return id;
 	}
 	public void setId(Integer id) {
-		Id = id;
+		this.id = id;
+	}
+	public List<ConsultorioSecretaria> getConsSecretaria() {
+		return consSecretaria;
+	}
+	public void setConsSecretaria(List<ConsultorioSecretaria> consSecretaria) {
+		this.consSecretaria = consSecretaria;
 	}
 	public Date getFecha() {
 		return fecha;

@@ -22,7 +22,7 @@ import javax.persistence.TemporalType;
 public class Doctor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 	
-	private Integer Id;
+	private Integer id;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fecha;
@@ -55,11 +55,11 @@ public class Doctor {
 	
 	
 	public Integer getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Integer id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getNombre() {
@@ -140,7 +140,7 @@ public class Doctor {
 		doctor.setDireccion(direccion);
 		doctor.setEmail(email);
 		doctor.setEspecialidad(especialidad);
-		doctor.setId(Id);
+		doctor.setId(id);
 		doctor.setMovil(movil);
 		doctor.setNombre(nombre);
 		doctor.setTelefono(telefono);

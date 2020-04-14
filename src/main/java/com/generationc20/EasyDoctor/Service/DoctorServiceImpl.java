@@ -20,9 +20,9 @@ public class DoctorServiceImpl implements DoctorService{
 
 	@Override
 	public Doctor crear(Doctor doctor) {
-		String password= doctor.getContraseña();
-		String hashPass= BCrypt.withDefaults().hashToString(12, password.toCharArray());
-		doctor.setContraseña(hashPass);
+//		String password= doctor.getContraseña();
+//		String hashPass= BCrypt.withDefaults().hashToString(12, password.toCharArray());
+//		doctor.setContraseña(hashPass);
 		doctor.setFecha(new Date());
 		return repository.save(doctor);
 	}

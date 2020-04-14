@@ -21,11 +21,11 @@ public class SecretariaServiceImpl implements SecretariaService {
 
 	@Override
 	public Secretaria crear(Secretaria secretaria) {
-		String password= secretaria.getContraseña();
-		String hashPass= BCrypt.withDefaults().hashToString(12, password.toCharArray());
-		secretaria.setContraseña(hashPass);
+//		String password= secretaria.getContraseña();
+//		String hashPass= BCrypt.withDefaults().hashToString(12, password.toCharArray());
+//		secretaria.setContraseña(hashPass);
 		secretaria.setFecha(new Date());
-		return secretaria;
+		return repository.save(secretaria);
 	}
 	@Override
 	public List<Secretaria> getByName(String nombre) {
