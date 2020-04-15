@@ -58,7 +58,7 @@ public class SecretariaController {
 		return new ResponseEntity<>(cSService.crear(consSecr),HttpStatus.CREATED);
 	}
 	@CrossOrigin
-	@GetMapping("/{nombre}")
+	@GetMapping("/nombre/{nombre}")
 	public ResponseEntity<List<Secretaria>> getByName(@PathVariable("nombre")String nombre){
 		return new ResponseEntity<>(service.getByName(nombre),HttpStatus.OK);
 	}

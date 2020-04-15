@@ -34,7 +34,7 @@ public class Consultorio {
 	private String encargado;
 	@Column(length=100,unique = true)
 	private String email;
-	private transient String claveAcceso;
+	private String claveAcceso;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fecha;
 	
@@ -117,6 +117,42 @@ public class Consultorio {
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
+	}
+
+
+
+	public List<ConsultorioSecretaria> getConsSecretaria() {
+		return consSecretaria;
+	}
+
+
+
+	public void setConsSecretaria(List<ConsultorioSecretaria> consSecretaria) {
+		this.consSecretaria = consSecretaria;
+	}
+
+
+
+	public List<ConsultorioDoctor> getConsDoctor() {
+		return consDoctor;
+	}
+
+
+
+	public void setConsDoctor(List<ConsultorioDoctor> consDoctor) {
+		this.consDoctor = consDoctor;
+	}
+
+
+
+	public List<Paciente> getPaciente() {
+		return paciente;
+	}
+
+
+
+	public void setPaciente(List<Paciente> paciente) {
+		this.paciente = paciente;
 	}
 	
 	
