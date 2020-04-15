@@ -41,7 +41,7 @@ public class DoctorServiceImpl implements DoctorService{
 		// TODO Auto-generated method stub
 		Doctor doctor = getById(id).get();
 		doctor.setApelliod(d.getApelliod());
-		doctor.setContraseña(d.getContraseña());
+		doctor.setContrasena(d.getContrasena());
 		doctor.setDireccion(d.getDireccion());
 		doctor.setEmail(d.getEmail());
 		doctor.setEspecialidad(d.getEspecialidad());

@@ -33,15 +33,17 @@ public class SecretariaController {
 	private ConsultorioService cService;
 	@Autowired
 	private ConsultorioSecretariaService cSService;
-	
+	@CrossOrigin
 	@GetMapping
 	public ResponseEntity<List<Secretaria>>getAll(){
 		return  new ResponseEntity<>(service.getAll(),HttpStatus.OK);
 	}
+	@CrossOrigin
 	@PostMapping
 	public ResponseEntity<Secretaria>crear(@RequestBody Secretaria sec){
 		return new ResponseEntity<>(service.crear(sec),HttpStatus.CREATED);
 	}
+	@CrossOrigin
 	@PostMapping("/crearCons/{idCreador}")
 	public ResponseEntity<Consultorio> crearCons(@PathVariable("idCreador")Integer idCreador,@RequestBody Consultorio cons){
 		Consultorio consu=new Consultorio();
@@ -50,22 +52,27 @@ public class SecretariaController {
 		cSService.crearCS(idConsultorio, idCreador);
 		return new ResponseEntity<>(consu,HttpStatus.CREATED);
 	}
+	@CrossOrigin
 	@PostMapping("/inscribri")
 	public ResponseEntity<ConsultorioSecretaria> inscribir(@RequestBody ConsultorioSecretaria consSecr){
 		return new ResponseEntity<>(cSService.crear(consSecr),HttpStatus.CREATED);
 	}
+	@CrossOrigin
 	@GetMapping("/{nombre}")
 	public ResponseEntity<List<Secretaria>> getByName(@PathVariable("nombre")String nombre){
 		return new ResponseEntity<>(service.getByName(nombre),HttpStatus.OK);
 	}
+	@CrossOrigin
 	@GetMapping("/{id}")
 	public ResponseEntity<Secretaria> getById(@PathVariable("id")Integer id){
 		return new ResponseEntity<>(service.getById(id).get(),HttpStatus.OK);
 	}
+	@CrossOrigin
 	@PutMapping("/{id}")
 	public ResponseEntity<Secretaria> updata(@PathVariable("id") Integer id,@RequestBody Secretaria s){
 		return new ResponseEntity<>(service.update(id, s),HttpStatus.OK);
 	}
+	@CrossOrigin
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> delete(@PathVariable("id")Integer id){
 		service.delete(id);

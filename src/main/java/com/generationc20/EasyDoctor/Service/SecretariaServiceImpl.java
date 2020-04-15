@@ -43,7 +43,7 @@ public class SecretariaServiceImpl implements SecretariaService {
 		// TODO Auto-generated method stub
 		Secretaria secretaria = getById(id).get();
 		secretaria.setApelliod(s.getApelliod());
-		secretaria.setContraseña(s.getContraseña());
+		secretaria.setContrasena(s.getContrasena());
 		secretaria.setDireccion(s.getDireccion());
 		secretaria.setEmail(s.getEmail());
 		secretaria.setFecha(s.getFecha());

@@ -43,7 +43,7 @@ public class Secretaria {
 	@Column(length=100)
 	private String usuario;
 	@Column(length=100)
-	private transient String contraseña;
+	private String contrasena;
 	
 	@OneToMany(targetEntity = ConsultorioSecretaria.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
 	@JoinColumn(name = "idSecretaria",referencedColumnName = "id")
@@ -110,11 +110,11 @@ public class Secretaria {
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasena() {
+		return contrasena;
 	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 	
 	public Secretaria () {}

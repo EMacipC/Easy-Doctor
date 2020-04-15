@@ -33,11 +33,12 @@ public class DoctorController {
 	@Autowired
 	private ConsultorioDoctroService cDService;
 	
-	
+	@CrossOrigin
 	@PostMapping
 	public ResponseEntity<Doctor> crear(@RequestBody Doctor doctor){
 		return new ResponseEntity<>(service.crear(doctor),HttpStatus.CREATED);
 	}
+	@CrossOrigin
 	@PostMapping("/crearCons/{idCreador}")
 	public ResponseEntity<Consultorio> crearCons(@PathVariable("idCreador")Integer idCreador,@RequestBody Consultorio cons){
 		Consultorio consu=new Consultorio();
@@ -46,31 +47,37 @@ public class DoctorController {
 		cDService.crearDS(idConsultorio, idCreador);
 		return new ResponseEntity<>(consu,HttpStatus.CREATED);
 	}
+	@CrossOrigin
 	@PostMapping("/inscribri")
 	public ResponseEntity<ConsultorioDoctor> inscribir(@RequestBody ConsultorioDoctor consDoctor){
 		return new ResponseEntity<>(cDService.crear(consDoctor),HttpStatus.CREATED);
 	}
+	@CrossOrigin
 	@GetMapping("/CD")
 	public ResponseEntity<List<ConsultorioDoctor>> getAllCD(){
 		return new ResponseEntity<>(cDService.getAll(),HttpStatus.OK);
 	}
-	
+	@CrossOrigin
 	@GetMapping
 	public ResponseEntity<List<Doctor>>getAll(){
 		return  new ResponseEntity<>(service.getAll(),HttpStatus.OK);
 	}
+	@CrossOrigin
 	@GetMapping("/{id}")
 	public ResponseEntity<Doctor> getById(@PathVariable("id")Integer id){
 		return new ResponseEntity<>(service.getById(id).get(),HttpStatus.OK);
 	}
+	@CrossOrigin
 	@PutMapping("/{id}")
 	public ResponseEntity<Doctor> updata(@PathVariable("id") Integer id,@RequestBody Doctor d){
 		return new ResponseEntity<>(service.update(id, d),HttpStatus.OK);
 	}
+	@CrossOrigin
 	@GetMapping("/nombre/{nombre}")
 	public ResponseEntity<List<Doctor>> getByName (@PathVariable("nombre")String nombre){
 		return new ResponseEntity<>(service.getByName(nombre),HttpStatus.OK);
 	}
+	@CrossOrigin
 	@DeleteMapping
 	public ResponseEntity<Void> delete(@PathVariable("id")Integer id){
 		service.delete(id);

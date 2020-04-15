@@ -43,7 +43,7 @@ public class Doctor {
 	@Column(length=100,unique = true)
 	private String usuario;
 	@Column(length=100)
-	private transient String contraseña;
+	private String contrasena;
 	
 	@OneToMany(targetEntity = Cita.class, cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
 	@JoinColumn(name="idDoctor",referencedColumnName = "id")
@@ -126,17 +126,17 @@ public class Doctor {
 		this.usuario = usuario;
 	}
 
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasena() {
+		return contrasena;
 	}
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 	public Doctor clone() {
 		Doctor doctor = new Doctor();
 		doctor.setApelliod(apelliod);
-		doctor.setContraseña(contraseña);
+		doctor.setContrasena(contrasena);
 		doctor.setDireccion(direccion);
 		doctor.setEmail(email);
 		doctor.setEspecialidad(especialidad);
