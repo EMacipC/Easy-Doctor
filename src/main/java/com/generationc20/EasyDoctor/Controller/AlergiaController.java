@@ -28,6 +28,7 @@ public class AlergiaController {
 //	public ResponseEntity<Alergia> save(@PathVariable Integer idPaciente,@RequestBody Alergia alergia){
 //		return new ResponseEntity<>(service.save(idPaciente,alergia),HttpStatus.CREATED);
 //	}
+	@CrossOrigin
 	@GetMapping
 	public ResponseEntity<List<Alergia>> getAll(){
 		return new ResponseEntity<>(service.getAll(),HttpStatus.OK);

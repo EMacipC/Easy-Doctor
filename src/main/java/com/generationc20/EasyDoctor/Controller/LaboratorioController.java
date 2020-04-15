@@ -22,18 +22,22 @@ public class LaboratorioController {
 	@Autowired
 	private LaboratorioService service;
 	
+	@CrossOrigin
 	@GetMapping
 	public ResponseEntity<List<Laboratorio>>getAll(){
 		return  new ResponseEntity<>(service.getAll(),HttpStatus.OK);
 	}
+	@CrossOrigin
 	@GetMapping("/{id}")
 	public ResponseEntity<Laboratorio> getById(@PathVariable("id")Integer id){
 		return new ResponseEntity<>(service.getById(id).get(),HttpStatus.OK);
 	}
+	@CrossOrigin
 	@PutMapping("/{id}")
 	public ResponseEntity<Laboratorio> updata(@PathVariable("id") Integer id,@RequestBody Laboratorio l){
 		return new ResponseEntity<>(service.update(id, l),HttpStatus.OK);
 	}
+	@CrossOrigin
 	@DeleteMapping
 	public ResponseEntity<Void> delete(@PathVariable("id")Integer id){
 		service.delete(id);

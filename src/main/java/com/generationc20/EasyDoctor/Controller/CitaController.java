@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,24 +25,28 @@ public class CitaController {
 	@Autowired
 	private CitaService service;
 	
+	@CrossOrigin
 	@PostMapping("/{idPaciente}/{idDoctor}")
 	public ResponseEntity<Cita> save(@RequestBody Cita cita,@PathVariable("idPaciente")Integer idPaciente,
 			@PathVariable("idDoctor")Integer idDoctor){
 		return new ResponseEntity<>(service.save(idPaciente,idDoctor,cita),HttpStatus.CREATED);
 	}
-
+	@CrossOrigin
 	@GetMapping("/{fecha}")
 	public ResponseEntity<List<Cita>> getByFecha(@PathVariable("fecha")String fecha){
 		return new ResponseEntity<>(service.getByFecha(fecha),HttpStatus.OK);
 	}
+	@CrossOrigin
 	@PutMapping("/{id}")
 	public ResponseEntity<Cita> updata(@PathVariable("id")Integer id,@RequestBody Cita cita){
 		return new ResponseEntity<>(service.updata(id, cita),HttpStatus.OK);
 	}
+	@CrossOrigin
 	@GetMapping("/{id}")
 	public ResponseEntity<Cita> getById(@PathVariable("id")Integer id){
 		return new ResponseEntity<>(service.getById(id),HttpStatus.OK);
 	}
+	@CrossOrigin
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> delate(@PathVariable("id")Integer id){
 		service.delete(id);

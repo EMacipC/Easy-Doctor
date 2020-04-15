@@ -59,6 +59,7 @@ public class PacienteController {
 	public ResponseEntity<Paciente> crear(@PathVariable("idCons")Integer idCons,@RequestBody Paciente paciente){
 		return new ResponseEntity<>(service.crearPaciente(idCons,paciente),HttpStatus.CREATED);
 	}
+	@CrossOrigin
 	@GetMapping("/{id}")
 	public ResponseEntity<Paciente> getById(@PathVariable("id") Integer id){
 		return new ResponseEntity<>(service.getById(id).get(),HttpStatus.OK);
@@ -68,10 +69,12 @@ public class PacienteController {
 	public ResponseEntity<List<Paciente>> getByName(@PathVariable("nombre")String nombre){
 		return new ResponseEntity<>(service.getByName(nombre),HttpStatus.OK);
 	}
+	@CrossOrigin
 	@PostMapping("/{id}/histoFam")
 	public ResponseEntity<HistorialFamiliar> crearhf(@PathVariable("id")Integer id,@RequestBody HistorialFamiliar hF){
 		return new ResponseEntity<>(histoFService .crear(id, hF),HttpStatus.CREATED);
 	}
+	@CrossOrigin
 	@PostMapping("/{id}/alergia/{idMedicamento}")
 	public ResponseEntity<Alergia> crearA(@PathVariable("idMedicamento")Integer id,@PathVariable("id")Integer idPaciente,
 			@RequestBody Alergia alergia){
@@ -82,22 +85,27 @@ public class PacienteController {
 		
 		return new ResponseEntity<>(alergiaFinish,HttpStatus.CREATED);
 	}
+	@CrossOrigin
 	@PostMapping("/{id}/histoClin")
 	public ResponseEntity<HistorialClinico> crearhC(@PathVariable("id")Integer id,@RequestBody HistorialClinico hC){
 		return new ResponseEntity<>(histoCService.crear(id, hC),HttpStatus.CREATED);
 	}
+	@CrossOrigin
 	@PostMapping("/{id}/histoNoClin")
 	public ResponseEntity<HistorialNoClinico> crearhNC(@PathVariable("id")Integer id,@RequestBody HistorialNoClinico hNC){
 		return new ResponseEntity<>(histoNCService.cerar(id, hNC),HttpStatus.CREATED);
 	}
+	@CrossOrigin
 	@PostMapping("/{id}/histoSex")
 	public ResponseEntity<HistorialSexual> crearhS(@PathVariable("id")Integer id,@RequestBody HistorialSexual hS){
 		return new ResponseEntity<>(histSService.crear(id, hS),HttpStatus.CREATED);
 	}
+	@CrossOrigin
 	@PutMapping("/{id}")
 	public ResponseEntity<Paciente> updata(@PathVariable("id")Integer id, @RequestBody Paciente paciente){
 		return new ResponseEntity<>(service.updata(id, paciente),HttpStatus.OK);
 	}
+	@CrossOrigin
 	@DeleteMapping
 	public ResponseEntity<Void> delate(@PathVariable("id")Integer id){
 		service.delate(id);
