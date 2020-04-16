@@ -11,5 +11,6 @@ public interface ConsultorioService {
 	Consultorio updata(Integer id,Consultorio consultorio);
 	List<Consultorio> getByName (String nombre);
 	Optional< Consultorio> getByid(Integer id);
+	List<Consultorio> getAll();
 	void delete (Integer id);
 }

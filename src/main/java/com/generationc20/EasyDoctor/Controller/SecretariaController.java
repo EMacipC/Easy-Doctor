@@ -49,7 +49,7 @@ public class SecretariaController {
 		Consultorio consu=new Consultorio();
 		consu=cService.crear(idCreador, cons);
 		Integer idConsultorio=consu.getId();
-		cSService.crearCS(idConsultorio, idCreador);
+		cSService.crearCS(idCreador,idConsultorio);
 		return new ResponseEntity<>(consu,HttpStatus.CREATED);
 	}
 	@CrossOrigin

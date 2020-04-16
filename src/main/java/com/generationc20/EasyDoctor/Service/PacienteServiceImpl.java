@@ -85,8 +85,12 @@ public class PacienteServiceImpl implements PacienteService{
 		return repository.findById(id);
 	}
 	@Override
-	public List<Paciente> getByName(String nombre){
-		return repository.findByName(nombre);
+	public List<Paciente> getByName(String nombre,Integer idConsultorio){
+		return repository.findByName(nombre,idConsultorio);
+	}
+	@Override
+	public List<Paciente> getByIdC(Integer idConsultorio) {
+		return repository.findByidC(idConsultorio);
 	}
 	@Override
 	public Paciente updata(Integer id, Paciente paciente) {

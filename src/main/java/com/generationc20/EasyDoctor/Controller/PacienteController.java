@@ -65,9 +65,14 @@ public class PacienteController {
 		return new ResponseEntity<>(service.getById(id).get(),HttpStatus.OK);
 	}
 	@CrossOrigin
-	@GetMapping("/nombre/{nombre}")
-	public ResponseEntity<List<Paciente>> getByName(@PathVariable("nombre")String nombre){
-		return new ResponseEntity<>(service.getByName(nombre),HttpStatus.OK);
+	@GetMapping("/nombre/{nombre}/{idConsultorio}")
+	public ResponseEntity<List<Paciente>> getByName(@PathVariable("nombre")String nombre,@PathVariable("idConsultorio")Integer idC){
+		return new ResponseEntity<>(service.getByName(nombre,idC),HttpStatus.OK);
+	}
+	@CrossOrigin
+	@GetMapping("/cons/{idCons}")
+	public ResponseEntity<List<Paciente>> getByIdC(@PathVariable("idCons")Integer idCons){
+		return new ResponseEntity<>(service.getByIdC(idCons),HttpStatus.OK);
 	}
 	@CrossOrigin
 	@PostMapping("/{id}/histoFam")

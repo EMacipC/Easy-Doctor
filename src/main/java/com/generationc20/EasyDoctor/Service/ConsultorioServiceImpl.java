@@ -45,6 +45,10 @@ public class ConsultorioServiceImpl implements ConsultorioService {
 		return repository.findByName(nombre);
 	}
 	@Override
+	public List<Consultorio> getAll() {
+		return repository.findAll();
+	}
+	@Override
 	public void delete(Integer id) {
 		
 	}

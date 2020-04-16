@@ -21,7 +21,8 @@ public interface PacienteService {
 	HistorialNoClinico crearhNC(Integer idPaciente,HistorialNoClinico hNC);
 	HistorialSexual crearhS(Integer idPaciente,HistorialSexual hS);
 	Alergia crearA(Integer idPaciente,Alergia alergia);
-	List<Paciente> getByName(String nombre);
+	List<Paciente> getByName(String nombre,Integer idConsultorio);
+	List<Paciente> getByIdC(Integer idConsultorio);
 	Optional<Paciente> getById(Integer id);
 	Paciente updata(Integer id,Paciente paciente);
 	void delate(Integer id);
