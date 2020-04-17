@@ -43,11 +43,11 @@ public class Consultorio {
 	private List<ConsultorioSecretaria> consSecretaria;
 	
 	@OneToMany(targetEntity = ConsultorioDoctor.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
-	@JoinColumn(name = "idConsultrio",referencedColumnName = "id")
+	@JoinColumn(name = "idConsultorio",referencedColumnName = "id")
 	private List<ConsultorioDoctor> consDoctor;
 	
 	@OneToMany(targetEntity = Paciente.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
-	@JoinColumn(name = "idConsultrio",referencedColumnName = "id")
+	@JoinColumn(name = "idConsultorio",referencedColumnName = "id")
 	private List<Paciente> paciente;
 	
 	public Consultorio() {}
@@ -154,6 +154,9 @@ public class Consultorio {
 	public void setPaciente(List<Paciente> paciente) {
 		this.paciente = paciente;
 	}
+
+
+
 	
 	
 

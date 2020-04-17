@@ -9,7 +9,10 @@ public interface CitaService {
 	Cita save(Integer idPaciente,Integer idDoctor,Cita cita);
 	Cita updata(Integer id,Cita cita);
 	Cita getById(Integer id);
-	List<Cita> getByFecha(String fecha);
+	List<Cita> getByFechaP(String fecha,Integer idPaciente);
+	List<Cita> getByPaciente(Integer idPaciente);
+	List<Cita> getByFechaD(String fecha,Integer idDoctor);
+	List<Cita> getByDoctor(Integer idDoctor);
 	void delete (Integer id);
 	
 

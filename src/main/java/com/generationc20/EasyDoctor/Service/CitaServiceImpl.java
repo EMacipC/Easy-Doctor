@@ -36,8 +36,20 @@ public class CitaServiceImpl implements CitaService {
 		return repository.findById(id).get();
 	}
 	@Override
-	public List<Cita> getByFecha(String fecha) {
-		return repository.findByFecha(fecha);
+	public List<Cita> getByFechaP(String fecha,Integer idPaciente) {
+		return repository.findByFechaP(fecha,idPaciente);
+	}
+	@Override
+	public List<Cita> getByPaciente(Integer idPaciente) {
+		return repository.findByPaciente(idPaciente);
+	}
+	@Override
+	public List<Cita> getByFechaD(String fecha, Integer idDoctor) {
+		return repository.findByFechaD(fecha, idDoctor);
+	}
+	@Override
+	public List<Cita> getByDoctor(Integer idDoctor) {
+		return repository.findByDocotr(idDoctor);
 	}
 	@Override
 	public void delete(Integer id) {

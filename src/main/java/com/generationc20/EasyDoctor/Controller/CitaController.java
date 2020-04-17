@@ -32,9 +32,24 @@ public class CitaController {
 		return new ResponseEntity<>(service.save(idPaciente,idDoctor,cita),HttpStatus.CREATED);
 	}
 	@CrossOrigin
-	@GetMapping("/{fecha}")
-	public ResponseEntity<List<Cita>> getByFecha(@PathVariable("fecha")String fecha){
-		return new ResponseEntity<>(service.getByFecha(fecha),HttpStatus.OK);
+	@GetMapping("/paciente/{fecha}/{idP}")
+	public ResponseEntity<List<Cita>> getByFechaP(@PathVariable("fecha")String fecha,@PathVariable("idP")Integer idP){
+		return new ResponseEntity<>(service.getByFechaP(fecha,idP),HttpStatus.OK);
+	}
+	@CrossOrigin
+	@GetMapping("/doctor/{fecha}/{idD}")
+	public ResponseEntity<List<Cita>> getByFechaD(@PathVariable("fecha")String fecha,@PathVariable("idP")Integer idD){
+		return new ResponseEntity<>(service.getByFechaD(fecha,idD),HttpStatus.OK);
+	}
+	@CrossOrigin
+	@GetMapping("/paciente/{idP}")
+	public ResponseEntity<List<Cita>> getByPaciente(@PathVariable("idP")Integer idP){
+		return new ResponseEntity<>(service.getByPaciente(idP),HttpStatus.OK);
+	}
+	@CrossOrigin
+	@GetMapping("/docotr/{idD}")
+	public ResponseEntity<List<Cita>> getByDoctor(@PathVariable("idP")Integer idD){
+		return new ResponseEntity<>(service.getByDoctor(idD),HttpStatus.OK);
 	}
 	@CrossOrigin
 	@PutMapping("/{id}")
